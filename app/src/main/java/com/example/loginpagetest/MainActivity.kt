@@ -56,7 +56,7 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun LoginPagePreview() {
     LoginPageTestTheme {
         CommentTextField()
     }
@@ -105,6 +105,7 @@ fun CommentTextField()
                 )
             },
             shape = RoundedCornerShape(80.dp),
+            maxLines = 1,
             placeholder = {
                 Text(
                     text = "example@trakya.edu.tr"
@@ -130,6 +131,7 @@ fun CommentTextField()
             placeholder = {
                 Text(text ="*********")
             },
+            shape = RoundedCornerShape(80.dp),
             maxLines = 1,
             visualTransformation = if(isPasswordVisible) PasswordVisualTransformation() else VisualTransformation.None,
             leadingIcon = {
