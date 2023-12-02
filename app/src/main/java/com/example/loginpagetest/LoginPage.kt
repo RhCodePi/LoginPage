@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -32,9 +33,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -43,6 +47,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.loginpagetest.ui.theme.LoginPageTestTheme
+
 
 @Preview(showBackground = true)
 @Composable
@@ -60,6 +65,7 @@ fun LoginPage(
     navController: NavController
 )
 {
+    val focusManager = LocalFocusManager.current
     Column (
         modifier = Modifier
             .size(412.dp, 732.dp) //
@@ -92,7 +98,15 @@ fun LoginPage(
             onValueChange = {emailValue = it},
             modifier = Modifier
                 .fillMaxWidth(0.75f),
-            keyboardOptions = KeyboardOptions(keyboardType =  KeyboardType.Email),
+            keyboardOptions = KeyboardOptions(
+                keyboardType =  KeyboardType.Email,
+                imeAction = ImeAction.Go,
+            ),
+            keyboardActions = KeyboardActions(
+                onGo = {
+                    focusManager.moveFocus(FocusDirection.Down)
+                }
+            ),
             label = {
                 Text(
                     "Enter Email",
@@ -119,7 +133,10 @@ fun LoginPage(
             onValueChange = {passwordValue= it},
             modifier = Modifier
                 .fillMaxWidth(0.75f),
-            keyboardOptions = KeyboardOptions(keyboardType =  KeyboardType.Password),
+            keyboardOptions = KeyboardOptions(
+                keyboardType =  KeyboardType.Password,
+                imeAction = ImeAction.Done
+            ),
             label = {
                 Text(text = "Enter Password")
             },
