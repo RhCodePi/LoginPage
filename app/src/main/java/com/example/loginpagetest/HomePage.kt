@@ -12,7 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -69,10 +69,10 @@ fun AppBar(
         Image(
             painter = painterResource(id = R.drawable.cutecat),
             contentDescription = "image_cute_cat",
+            contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .size(75.dp)
-                .shadow(1.dp, CircleShape),
-            contentScale = ContentScale.FillBounds,
+                .clip(CircleShape),
         )
         Text(
             text = "Home Page"

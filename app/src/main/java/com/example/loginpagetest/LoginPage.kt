@@ -32,10 +32,11 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
@@ -84,9 +85,10 @@ fun LoginPage(
         Image(
             painter = painterResource(id = R.drawable.trakyalogo),
             contentDescription = "Image",
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(150.dp)
-                .shadow(1.dp, CircleShape),
+                .clip(CircleShape),
         )
         Spacer(modifier = Modifier.height(20.dp))
 
