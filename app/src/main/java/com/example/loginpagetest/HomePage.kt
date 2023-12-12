@@ -7,7 +7,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Assignment
+import androidx.compose.material.icons.rounded.CalendarMonth
+import androidx.compose.material.icons.rounded.Grade
+import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -47,8 +54,19 @@ fun HomePage(
                     )
                 )
             ),
+        verticalArrangement = Arrangement.SpaceBetween,
     ){
         AppBar(navController = navController)
+
+        Row(
+            modifier = Modifier
+                .size(412.dp, 70.dp)
+
+        ){
+
+        }
+
+        BottomBar()
     }
 }
 
@@ -87,6 +105,53 @@ fun AppBar(
             )
         }
     }
+}
+
+@Composable
+fun BottomBar()
+{
+    Row(
+        modifier = Modifier
+            .size(412.dp, 70.dp)
+            .background(Color.Green),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceAround,
+    ){
+        Button(
+            onClick ={}
+        ){
+            SetIcon(
+                imageVector = Icons.Rounded.CalendarMonth,
+                contentDescription = "Calender"
+            )
+        }
+
+        Button(onClick = { /*TODO*/ }) {
+            SetIcon(
+                imageVector = Icons.Rounded.Assignment,
+                contentDescription = "Assignment"
+            )
+        }
+
+        Button(onClick = { /*TODO*/ }) {
+            SetIcon(
+                imageVector = Icons.Rounded.Grade,
+                contentDescription = "Grade"
+            )
+        }
+    }
+}
+
+@Composable
+fun SetIcon(imageVector: ImageVector, contentDescription: String)
+{
+    Icon(
+        imageVector = imageVector,
+        contentDescription = contentDescription,
+        modifier = Modifier
+            .size(35.dp),
+        tint = Color.White
+    )
 }
 
 
