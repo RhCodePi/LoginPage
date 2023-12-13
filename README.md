@@ -1,4 +1,4 @@
 # LoginPage
 This page was prepared with Kotlin Jetpack Compose.
 
-![LoginToHome](https://github.com/RhCodePi/LoginPage/assets/79790661/b3a8011d-45c7-4f73-a8a7-aa024950d964)
+![LoginToHome](..%2F..%2FDownloads%2FRunning%20Devices%20-%20LoginPageTest%202023-12-12%2020-20-41.gif)
