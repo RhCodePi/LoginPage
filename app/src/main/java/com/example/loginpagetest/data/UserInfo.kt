@@ -1,12 +1,11 @@
-package com.example.loginpagetest
-
-
+package com.example.loginpagetest.data
 
 class UserInfo(
-    private var userId : Int,
+    private val userId : Int,
     private var userName: String,
     private var userEmail: String,
-    private var userPassword: String
+    private var userPassword: String,
+    private val userDetail: UserDetail
 ) {
 
     fun getUserId() : Int
@@ -24,6 +23,7 @@ class UserInfo(
         return userPassword
     }
 
-
-
+    fun getUserDetail(): UserDetail{
+        return userDetail
+    }
 }

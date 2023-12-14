@@ -1,4 +1,4 @@
-package com.example.loginpagetest
+package com.example.loginpagetest.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

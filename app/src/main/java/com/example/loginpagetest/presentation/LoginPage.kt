@@ -1,4 +1,4 @@
-package com.example.loginpagetest
+package com.example.loginpagetest.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -39,6 +39,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -47,6 +48,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.loginpagetest.R
+import com.example.loginpagetest.data.userList
 import com.example.loginpagetest.ui.theme.LoginPageTestTheme
 
 
@@ -111,14 +114,14 @@ fun LoginPage(
             ),
             label = {
                 Text(
-                    "Enter Email",
+                    stringResource(R.string.label_email)
                 )
             },
             shape = RoundedCornerShape(80.dp),
             maxLines = 1,
             placeholder = {
                 Text(
-                    text = "example@trakya.edu.tr"
+                    stringResource(R.string.placeholder_email)
                 )
             },
             leadingIcon = {
@@ -140,10 +143,10 @@ fun LoginPage(
                 imeAction = ImeAction.Done
             ),
             label = {
-                Text(text = "Enter Password")
+                Text(stringResource(R.string.label_password))
             },
             placeholder = {
-                Text(text ="*********")
+                Text(stringResource(R.string.placeholder_password))
             },
             shape = RoundedCornerShape(80.dp),
             maxLines = 1,

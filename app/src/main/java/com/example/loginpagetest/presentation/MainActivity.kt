@@ -1,4 +1,4 @@
-package com.example.loginpagetest
+package com.example.loginpagetest.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

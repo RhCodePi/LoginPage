@@ -1,4 +1,4 @@
-package com.example.loginpagetest
+package com.example.loginpagetest.presentation
 
 sealed class Screen (val route : String){
     object Login : Screen(route = "login_screen")

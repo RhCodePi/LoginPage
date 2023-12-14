@@ -1,5 +1,6 @@
-package com.example.loginpagetest
+package com.example.loginpagetest.presentation
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -28,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.loginpagetest.R
 import com.example.loginpagetest.ui.theme.LoginPageTestTheme
 
 @Preview(showBackground = true)
@@ -65,7 +67,6 @@ fun HomePage(
         ){
 
         }
-
         BottomBar()
     }
 }
@@ -118,7 +119,9 @@ fun BottomBar()
         horizontalArrangement = Arrangement.SpaceAround,
     ){
         Button(
-            onClick ={}
+            onClick ={
+                Log.d("Calender", "Click Calender")
+            }
         ){
             SetIcon(
                 imageVector = Icons.Rounded.CalendarMonth,
@@ -126,14 +129,20 @@ fun BottomBar()
             )
         }
 
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = {
+            Log.d("Assignment", "Click Assignment")
+            }
+        ) {
             SetIcon(
                 imageVector = Icons.Rounded.Assignment,
                 contentDescription = "Assignment"
             )
         }
 
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = {
+            Log.d("Grade", "Click Grade")
+            }
+        ) {
             SetIcon(
                 imageVector = Icons.Rounded.Grade,
                 contentDescription = "Grade"
