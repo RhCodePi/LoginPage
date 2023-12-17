@@ -29,7 +29,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.loginpagetest.R
+import com.example.loginpagetest.data.UserInfo
+import com.example.loginpagetest.data.userList
 import com.example.loginpagetest.ui.theme.LoginPageTestTheme
 
 @Preview(showBackground = true)
@@ -86,7 +87,9 @@ fun AppBar(
         horizontalArrangement = Arrangement.SpaceEvenly,
     ) {
         Image(
-            painter = painterResource(id = R.drawable.cutecat),
+            painter = painterResource(
+                id = getLoggedUser()?.getUserDetail()!!.userPhoto
+            ),
             contentDescription = "image_cute_cat",
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
@@ -99,7 +102,7 @@ fun AppBar(
         ElevatedButton(
             modifier = Modifier,
 
-            onClick = { logOut(navController) }
+            onClick = { logOut(navController, getLoggedUser()) }
         ) {
             Text(
                 text = "Logout"
@@ -151,6 +154,15 @@ fun BottomBar()
     }
 }
 
+fun getLoggedUser() : UserInfo? {
+    for(user in userList)
+    {
+        if(user.getUserDetail().isLogged)
+            return user
+    }
+    return null
+}
+
 @Composable
 fun SetIcon(imageVector: ImageVector, contentDescription: String)
 {
@@ -164,7 +176,11 @@ fun SetIcon(imageVector: ImageVector, contentDescription: String)
 }
 
 
-fun logOut(navControl: NavController)
+fun logOut(
+    navControl: NavController,
+    user : UserInfo?
+)
 {
+    user?.getUserDetail()?.isLogged = false
     navControl.navigate(route = Screen.Login.route)
 }

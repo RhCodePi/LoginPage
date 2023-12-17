@@ -198,6 +198,7 @@ fun enterFunc(email : String,password : String ,navControl: NavController)
             if(password == user.getUserPassword())
             {
                 navControl.navigate(route = Screen.Home.route)
+                user.getUserDetail().isLogged = true
             }
         }
     }

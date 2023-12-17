@@ -10,16 +10,19 @@ val userList = listOf(
         "12345",
         UserDetail(
             1,
-            R.drawable.cutecat)
+            R.drawable.cutecat,
+            false,
+            )
     ),
     UserInfo(
         2,
         "cuteCat",
-        "cutacate@trakya.edu.tr",
+        "cutecat@trakya.edu.tr",
         "12345",
         UserDetail(
             2,
-            R.drawable.cutecat_2
+            R.drawable.cutecat_2,
+            false,
         )
     ),
 )
